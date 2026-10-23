@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <title>Política de privacidad - Parabasis Bridge</title>
+  <style>
+    :root { color-scheme: light; font-family: Arial, sans-serif; }
+    body { margin: 0 auto; max-width: 860px; padding: 24px; color: #25282d; line-height: 1.6; }
+    h1, h2 { line-height: 1.25; }
+    .draft { border: 1px solid #9a6500; background: #fff4d6; padding: 14px; }
+    code { overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <h1>Política de privacidad de Parabasis Bridge</h1>
+  <p><strong>Vigente desde:</strong> 13 de octubre de 2026</p>
+
+  <h2>1. Responsable y contacto</h2>
+  <p>El responsable del tratamiento de datos de Parabasis Bridge es
+    <strong>Mariano de la Peña</strong>. Para consultas o solicitudes de privacidad, escribe a
+    <strong>mariano.delapena@gmail.com</strong>.</p>
+
+  <h2>2. Qué hace la aplicación</h2>
+  <p>Parabasis Bridge es una aplicación para Android que permite al usuario elegir aplicaciones
+    instaladas de las que desea procesar notificaciones y enviar a la instancia de Parabasis
+    vinculada los eventos financieros que logra identificar. El acceso a notificaciones se habilita
+    manualmente desde los ajustes del sistema Android y el usuario debe aceptar el aviso de la app.
+    El usuario puede desactivar aplicaciones individuales o revocar el consentimiento desde la app.</p>
+
+  <h2>3. Datos tratados</h2>
+  <ul>
+    <li>De las aplicaciones que el usuario habilita: título y texto de la notificación, incluidos
+      texto ampliado y subtítulo cuando estén disponibles; nombre y paquete de la aplicación de
+      origen; categoría y marcas de tiempo.</li>
+    <li>Si Android incluye una imagen en una notificación autorizada, la app puede analizarla
+      localmente mediante reconocimiento óptico de caracteres (OCR). La imagen no se guarda ni se
+      envía al servidor; el texto reconocido puede incorporarse al contenido de la notificación y
+      al evento financiero, sujeto a las mismas reglas de almacenamiento, redacción y envío.</li>
+    <li>Para mostrar el selector de aplicaciones, la app consulta localmente las aplicaciones
+      instaladas que ofrecen un acceso directo (nombre, paquete e icono). Esa lista se usa para que
+      el usuario elija cuáles autorizar y no se envía al servidor como inventario de aplicaciones.</li>
+    <li>Los eventos que se identifican pueden incluir tipo de operación, importe, moneda, fecha,
+      referencia, entidad, activo o instrumento y campos relacionados que aparezcan en la
+      notificación. La app intenta redactar determinados correos, teléfonos y números largos antes
+      de guardar o enviar texto; la redacción automática puede no detectar todos los datos sensibles.</li>
+    <li>La credencial de vinculación del dispositivo (BridgeKey) y el nombre elegido para el
+      dispositivo, si corresponde.</li>
+  </ul>
+
+  <h2>4. Finalidad y base de uso</h2>
+  <p>Los datos se usan para analizar las notificaciones autorizadas, clasificar posibles
+    movimientos financieros, mostrar el historial y sincronizar los eventos identificados con la
+    instancia de Parabasis que el usuario vinculó. La app no debe utilizarse para vigilar a otras
+    personas ni para procesar notificaciones de aplicaciones que el usuario no haya habilitado.</p>
+  <p>El acceso a notificaciones es una función sensible. Antes de habilitarlo, el usuario recibe
+    información en la app y debe aceptar expresamente el procesamiento. Puede retirar el
+    consentimiento desde la app; al hacerlo, se detienen nuevos procesamientos y se borran los
+    datos locales, la cola de envíos y la credencial almacenada por la app.</p>
+
+  <h2>5. Almacenamiento y conservación</h2>
+  <p>El historial, los eventos y los envíos pendientes se almacenan en la base de datos privada de
+    la aplicación en el dispositivo. La app excluye esos datos de las reglas de backup de Android.
+    La base de datos no tiene cifrado independiente a nivel de aplicación. La BridgeKey se cifra
+    mediante Android Keystore.</p>
+  <p>Los datos locales se conservan hasta que el usuario los borra al revocar el consentimiento o
+    desinstala la aplicación, salvo que el sistema operativo o una obligación legal disponga otra
+    cosa.</p>
+  <p><strong>Conservación en el servidor:</strong> la instancia de Parabasis vinculada conserva los
+    eventos recibidos durante un máximo de 365 días. El usuario puede solicitar su eliminación
+    anticipada escribiendo a <strong>mariano.delapena@gmail.com</strong>. La app no puede borrar
+    desde el teléfono los eventos que el servidor ya recibió.</p>
+
+  <h2>6. Destinatarios y transferencias</h2>
+  <p>Cuando el usuario vincula el dispositivo y acepta el procesamiento, los eventos identificados
+    se transmiten por HTTPS a la API de Parabasis configurada en la aplicación
+    (<code>erp-pbs-production.up.railway.app</code>) y a la instancia de Parabasis vinculada por el
+    usuario. La BridgeKey se envía en el encabezado de autorización para autenticar la solicitud,
+    no como parte del contenido del evento. No se envía el inventario local de aplicaciones al
+    servidor. El operador de la instancia y sus proveedores técnicos de alojamiento pueden tratar
+    los datos para operar el servicio.</p>
+  <p><strong>Ubicación y proveedores:</strong> la API está alojada en Railway y la base de datos
+    persistente está alojada en Aiven, en São Paulo, Brasil. Estos proveedores técnicos procesan
+    datos para prestar y mantener el servicio. Por la ubicación de la base de datos, los datos
+    pueden almacenarse o tratarse en Brasil.</p>
+  <p>Parabasis Bridge no vende datos personales ni los usa para publicidad.</p>
+
+  <h2>7. Seguridad</h2>
+  <p>La comunicación de eventos con la API se realiza mediante HTTPS y la credencial BridgeKey se
+    guarda cifrada con Android Keystore. El acceso local a los datos depende además de las
+    protecciones del sistema Android y del dispositivo del usuario. Ningún método de transmisión o
+    almacenamiento puede garantizar seguridad absoluta; el usuario debe mantener actualizado y
+    protegido su dispositivo.</p>
+
+  <h2>8. Derechos y eliminación</h2>
+  <p>El usuario puede revocar el consentimiento y borrar los datos locales desde la aplicación.
+    Al revocar, la app también intenta solicitar la desvinculación del dispositivo a la instancia
+    de Parabasis; si no hay conexión o la solicitud falla, debe contactar al administrador para
+    verificar esa desvinculación. Para solicitar acceso, rectificación o eliminación de los datos
+    ya recibidos por la instancia vinculada antes de que transcurran 365 días, escribe a
+    <strong>mariano.delapena@gmail.com</strong>. La desvinculación del teléfono no implica por sí
+    sola la eliminación de eventos históricos en el servidor.</p>
+  <p>Las solicitudes se atenderán dentro de los plazos previstos por la legislación aplicable.
+    Para usuarios de Argentina, las solicitudes relacionadas con datos personales pueden presentarse
+    ante la Agencia de Acceso a la Información Pública, autoridad de aplicación de la Ley 25.326.</p>
+
+  <h2>9. Cambios y contacto</h2>
+  <p>Esta política puede actualizarse cuando cambien la aplicación, los servicios vinculados o los
+    requisitos legales. Se publicará la versión vigente en esta misma dirección y se actualizará
+    su fecha. Para consultas, utiliza <strong>mariano.delapena@gmail.com</strong>.</p>
+</body>
+</html>
